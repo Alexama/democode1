@@ -76,12 +76,12 @@ Chtd = function(wsHost, userInput, commonOutput)
     {
         var code = e.charCode || e.keyCode;
         //block delete, left-arrow
-		if (code == 46 || code == 37) {
+        if (code == 46 || code == 37) {
             e.preventDefault();
             return false;
         }
         //delete key
-		if (code == 8) {
+        if (code == 8) {
             resetSelection(e.target);
             removeLastSmile();
             webSocket.send('{"type": 1, "keyCode":' + code + '}');
@@ -98,7 +98,7 @@ Chtd = function(wsHost, userInput, commonOutput)
         var e = e || event;
         var cClass = e.target.getAttribute('class');
         var arrClass = cClass.split(' ');
-        if(arrClass[1]) {
+        if (arrClass[1]) {
             userInput.value += ":" + arrClass[1] + ":";
             webSocket.send('{"type": 5, "smileCode": "' + arrClass[1] + '"}');
             smilesContainer.style.display = 'none';
